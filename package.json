@@ -1,0 +1,11 @@
+{
+  "name": "intagram-clone",
+  "version": "0.0.1",
+  "description": "An instagram clone made with friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Douglas Socorro, Benjamin Alastre",
+  "license": "MIT"
+}
