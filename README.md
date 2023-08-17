@@ -1,3 +1,3 @@
-# Instagram Clone
+# PicSpot
 
-This is an instagram clone made with friends
+This is a social network dedicated to share photos made with friends
