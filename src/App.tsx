@@ -1,18 +1,14 @@
+import { Box, Grid, Divider } from '@mui/material';
 import './App.css';
 
 import React, { useState } from 'react';
 
-import logo from './logo.svg';
+import Login from '@/pages/login';
 
 function App() {
   const [count, setCount] = useState(0);
 
-  return (
-    <div className="App">
-      <h1>Hello, this is PicSpot 📸</h1>
-      <h3>This is currently on development so, be carefull 🚧</h3>
-    </div>
-  );
+  return <Login />;
 }
 
 export default App;
