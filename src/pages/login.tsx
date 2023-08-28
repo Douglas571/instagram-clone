@@ -1,3 +1,5 @@
+import React, { useState, useRef, FocusEvent, SyntheticEvent } from 'react';
+
 import {
   Box,
   Paper,
@@ -9,7 +11,29 @@ import {
   Link,
 } from '@mui/material';
 
+interface UserCredentials {
+  nickname: string;
+  password: string;
+}
+
 export default function Login(): JSX.Element {
+  const [userCredentials, setUserCredentials] = useState<UserCredentials>({
+    nickname: '',
+    password: '',
+  });
+
+  function handleInput(evt: FocusEvent<HTMLInputElement>) {
+    if (typeof evt.currentTarget.name === 'string') {
+      const key: keyof UserCredentials = evt.currentTarget.name;
+      userCredentials[key] = evt.currentTarget.value ?? '';
+    }
+
+    console.log({ userCredentials });
+
+    return null;
+  }
+
+  // comment
   return (
     <Box
       sx={{
@@ -29,10 +53,16 @@ export default function Login(): JSX.Element {
         }}
       >
         <Paper sx={{ p: 5, mb: 2 }} variant="outlined">
-          <Box sx={{ mb: 3, textAlign: 'center' }}>PicSpot</Box>
+          <Box sx={{ mb: 3, py: 5, textAlign: 'center' }}>
+            <img src="/logo_striped.png" height={'50px'} />
+          </Box>
           <Stack gap={2}>
-            <TextField placeholder="Phone, nickname or email" />
-            <TextField placeholder="Password" />
+            <TextField
+              onBlur={handleInput}
+              placeholder="Phone, nickname or email"
+              name="nickname"
+            />
+            <TextField onBlur={handleInput} placeholder="Password" name="password" />
             <Button variant="contained" disableRipple>
               Sing in
             </Button>
