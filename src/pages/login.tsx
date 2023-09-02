@@ -11,10 +11,10 @@ import {
   Link,
 } from '@mui/material';
 
-interface UserCredentials {
+type UserCredentials = {
   nickname: string;
   password: string;
-}
+};
 
 export default function Login(): JSX.Element {
   const [userCredentials, setUserCredentials] = useState<UserCredentials>({
@@ -23,17 +23,15 @@ export default function Login(): JSX.Element {
   });
 
   function handleInput(evt: FocusEvent<HTMLInputElement>) {
-    if (typeof evt.currentTarget.name === 'string') {
-      const key: keyof UserCredentials = evt.currentTarget.name;
-      userCredentials[key] = evt.currentTarget.value ?? '';
+    if (['nickname', 'password'].includes(evt.currentTarget.name)) {
+      setUserCredentials({
+        ...userCredentials,
+        [evt.currentTarget.name]: evt.currentTarget.value,
+      });
     }
-
-    console.log({ userCredentials });
-
-    return null;
+    console.log("ERROR: the input doesn't contain a valid input name.");
   }
 
-  // comment
   return (
     <Box
       sx={{
