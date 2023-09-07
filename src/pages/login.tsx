@@ -50,7 +50,7 @@ export default function Login(): JSX.Element {
           justifyContent: 'center',
         }}
       >
-        <Paper sx={{ p: 5, mb: 2 }} variant="outlined">
+        <Paper sx={{ p: 5, mb: 2, maxWidth: '300px' }} variant="outlined">
           <Box sx={{ mb: 3, py: 5, textAlign: 'center' }}>
             <img src="/logo_striped.png" height={'50px'} />
           </Box>
@@ -61,7 +61,7 @@ export default function Login(): JSX.Element {
               name="nickname"
             />
             <TextField onBlur={handleInput} placeholder="Password" name="password" />
-            <Button variant="contained" disableRipple>
+            <Button variant="contained" disableRipple disableElevation>
               Sing in
             </Button>
           </Stack>
